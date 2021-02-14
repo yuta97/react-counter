@@ -1,21 +1,25 @@
-// import logo from './logo.svg';
-// import './App.css';
 import React , { useState } from 'react'
+import Header from "./Header"
+import Footer from "./Footer"
+import { Button, Input } from "@material-ui/core"
+
 const App = () => {
   const [count, setCount] = useState(0)
   const [message, setMessage] = useState('hello')
   return (
     <>
+      <Header count={count} />
       {message}:{count}
       <div>
-        <button onClick={() => setCount((cnt) => ++cnt)}> + </button>
-        <button onClick={() => setCount((cnt) => --cnt)}> - </button>
-        <input
+        <Button onClick={() => setCount((cnt) => ++cnt)}> + </Button>
+        <Button onClick={() => setCount((cnt) => --cnt)}> - </Button>
+        <Input
           type="text"
           value={message}
           onChange={(e) => setMessage((msg) => (msg = e.target.value))}
         />
       </div>
+      <Footer />
     </>
   );
 }
